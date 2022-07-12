@@ -135,41 +135,16 @@
         <center><button class="btn btn-primary" id="submit-1" onclick="submit(1)">ダウンロード</button></center>
         <br>
     </div>
-    <div class="container" id='Table2'></div>
-    <div class="container" id='submit_button-2'>
-        <br>
-        <center><button class="btn btn-primary" id="submit-2" onclick="submit(2)">ダウンロード</button></center>
-        <br>
-    </div>
-    <!-- <script src="data/dialog_1.js"></script>
-    <script src="data/dialog_2.js"></script>
-    <script src="data/dialog_3.js"></script>
-    <script src="data/dialog_4.js"></script> -->
-    <script src="data/example.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!--     <script src="data/example.js"></script> -->
     <script src="script.js"></script>
-    <!-- <script id="json_data" type="application/json" src="data/da_list-2022-0712/da_list-system-max2/group0/task0.json"></script> -->
-    <!-- <script type="text/javascript">
-        // const dialog_list = shuffle([dialog_1, dialog_2, dialog_3, dialog_4]);
-        const dialog_list = shuffle([example]);
-        for (var table_id = 1; table_id < 3; ++table_id) {
-            document.getElementById('Table' + table_id).innerHTML = create_table(table_id, dialog_list[table_id - 1]);
-        }
-    </script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script language="javascript" type="text/javascript">
-        // const dialog_list_2 = ""
         let random_number = Math.floor(Math.random()*50);
         $.getJSON("data/da_list-2022-0712/da_list-system-max2/group0/task" + String(random_number) + ".json", function(json) {
-//         $.getJSON("https://github.com/BrandonWatanabe/robocon_data_collection/blob/main/data/da_list-2022-0712/da_list-system-max2/group0/task" + String(random_number) + ".json", function(json) {
-        const da_json = json;
         console.log(String(random_number))
-        console.log(da_json);
-        console.log(String(da_json))
-        document.getElementById('Table1').innerHTML = create_table(1, da_json);
+        console.log(json);
+        document.getElementById('Table1').innerHTML = create_table(1, json);
         });
-        // const da_json = document.getElementById('json_data');
-        // console.log(da_json);
-        // document.getElementById('Table1').innerHTML = create_table(1, da_json);
     </script>
 
 </body>
