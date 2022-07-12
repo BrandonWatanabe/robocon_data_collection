@@ -9,7 +9,6 @@ const shuffle = ([...array]) => {
 
 function create_table(table_id, json_data) {
     // const json_data = '[{"id": 1,"speaker": "user","intent": "教える","slots": {"ユーザの名前": "鈴木"}},{"id": 2,"speaker": "system","intent": "観光地の名称を確認する","slots": {"ユーザの名前": "鈴木","観光地1の名称": "お台場海浜公園","観光地2の名称": "第三台場"}}]';
-//     let dialog = JSON.parse(json_data);
     let dialog = json_data;
     // console.log(js)
     // console.log(js.length)
