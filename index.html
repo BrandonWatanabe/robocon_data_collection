@@ -162,6 +162,7 @@
         $.getJSON("data/da_list-2022-0712/da_list-system-max2/group0/task" + String(random_number) + ".json", function(json) {
 //         $.getJSON("https://github.com/BrandonWatanabe/robocon_data_collection/blob/main/data/da_list-2022-0712/da_list-system-max2/group0/task" + String(random_number) + ".json", function(json) {
         const da_json = json
+        console.log(da_json)
         document.getElementById('Table1').innerHTML = create_table(1, da_json);
         });
         // const da_json = document.getElementById('json_data');
