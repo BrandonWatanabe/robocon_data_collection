@@ -145,23 +145,24 @@
     <script src="data/dialog_2.js"></script>
     <script src="data/dialog_3.js"></script>
     <script src="data/dialog_4.js"></script> -->
-    <!-- <script src="data/example.js"></script> -->
+    <script src="data/example.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="script.js"></script>
-    <!-- <script type="text/javascript">
+    <script type="text/javascript">
         // const dialog_list = shuffle([dialog_1, dialog_2, dialog_3, dialog_4]);
         const dialog_list = shuffle([example]);
         for (var table_id = 1; table_id < 3; ++table_id) {
             document.getElementById('Table' + table_id).innerHTML = create_table(table_id, dialog_list[table_id - 1]);
         }
-    </script> -->
+    </script>
     <script language="javascript" type="text/javascript">
         // const dialog_list_2 = ""
         let random_number = Math.floor(Math.random()+50);
-        $.getJSON("data/da_list-2022-0712/da_list-system-max2/group0/task" + String(random_number) + ".json", function(json) {
+        // $.getJSON("data/da_list-2022-0712/da_list-system-max2/group0/task" + String(random_number) + ".json", function(json) {
+        $.getJSON("https://github.com/BrandonWatanabe/robocon_data_collection/blob/main/data/da_list-2022-0712/da_list-system-max2/group0/task" + String(random_number) + ".json", function(json) {
             const da_json = json
+            document.getElementById('Table1').innerHTML = create_table(1, da_json);
         });
-        document.getElementById('Table1').innerHTML = create_table(1, da_json);
     </script>
 
 </body>
