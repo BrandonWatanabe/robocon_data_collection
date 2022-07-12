@@ -1,0 +1,159 @@
+{
+    "system": {
+        "welcome": {
+            "jp": "歓迎の挨拶をする",
+            "required_slots": [],
+            "optional_slots": [],
+            "min_optional_slots": 0
+        },
+        "self_introduction": {
+            "jp": "自己紹介をする",
+            "required_slots": [
+                "system_name"
+            ],
+            "optional_slots": [],
+            "min_optional_slots": 0
+        },
+        "finish_for_time_limit": {
+            "jp": "制限時間になったので対話を切り上げる",
+            "required_slots": [],
+            "optional_slots": [
+                "user_name"
+            ],
+            "min_optional_slots": 0
+        },
+        "thankyou_for_visiting": {
+            "jp": "来店へのお礼を言う",
+            "required_slots": [],
+            "optional_slots": [
+                "user_name"
+            ],
+            "min_optional_slots": 0
+        },
+        "goodbye": {
+            "jp": "別れの挨拶をする",
+            "required_slots": [],
+            "optional_slots": [
+                "user_name"
+            ],
+            "min_optional_slots": 0
+        },
+        "sorry": {
+            "jp": "謝罪する",
+            "required_slots": [],
+            "optional_slots": [
+                "user_name"
+            ],
+            "min_optional_slots": 0
+        },
+        "affirm": {
+            "jp": "肯定する",
+            "required_slots": [],
+            "optional_slots": [
+                "user_name", "attraction_*"
+            ],
+            "min_optional_slots": 0
+        },
+        "negate": {
+            "jp": "否定する",
+            "required_slots": [],
+            "optional_slots": [
+                "user_name"
+            ],
+            "min_optional_slots": 0
+        },
+        "start_request": {
+            "jp": "これから質問し始めることを伝える",
+            "required_slots": [],
+            "optional_slots": [
+                "user_name"
+            ],
+            "min_optional_slots": 0
+        },
+        "request": {
+            "jp": "質問する",
+            "required_slots": [],
+            "optional_slots": [
+                "user_*"
+            ],
+            "min_optional_slots": 1
+        },
+        "confirm_attraction": {
+            "jp": "観光地の名称を確認する",
+            "required_slots": [
+                "target_name", "dummy_name"
+            ],
+            "optional_slots": [
+                "user_name"
+            ],
+            "min_optional_slots": 0
+        },
+        "inform": {
+            "jp": "教える",
+            "required_slots": [],
+            "optional_slots": [
+                "user_name", "attraction_*", "restaurant_*"
+            ],
+            "min_optional_slots": 1
+        },
+        "recommend_target": {
+            "jp": "観光地をお勧めする",
+            "required_slots": [],
+            "optional_slots": [
+                "user_name", "attraction_*", "restaurant_*"
+            ],
+            "min_optional_slots": 1
+        },
+        "ask_question": {
+            "jp": "気になることはないか尋ねる",
+            "required_slots": [],
+            "optional_slots": [
+                "user_name"
+            ],
+            "min_optional_slots": 0
+        }
+    },
+    "user": {
+        "thankyou": {
+            "jp": "感謝する",
+            "required_slots": [],
+            "optional_slots": [],
+            "min_optional_slots": 0
+        },
+        "goodbye": {
+            "jp": "別れの挨拶をする",
+            "required_slots": [],
+            "optional_slots": [],
+            "min_optional_slots": 0
+        },
+        "request": {
+            "jp": "質問する",
+            "required_slots": [],
+            "optional_slots": [
+                "attraction_*", "restaurant_*"
+            ],
+            "min_optional_slots": 1
+        },
+        "affirm": {
+            "jp": "肯定する",
+            "required_slots": [],
+            "optional_slots": [],
+            "min_optional_slots": 0
+        },
+        "negate": {
+            "jp": "否定する",
+            "required_slots": [],
+            "optional_slots": [],
+            "min_optional_slots": 0
+        },
+        "inform": {
+            "jp": "教える",
+            "required_slots": [],
+            "optional_slots": [
+                "user_*"
+            ],
+            "min_optional_slots": 1
+        }
+
+    }
+}
