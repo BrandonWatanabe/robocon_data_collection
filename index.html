@@ -161,7 +161,7 @@
         let random_number = Math.floor(Math.random()*50);
         $.getJSON("data/da_list-2022-0712/da_list-system-max2/group0/task" + String(random_number) + ".json", function(json) {
 //         $.getJSON("https://github.com/BrandonWatanabe/robocon_data_collection/blob/main/data/da_list-2022-0712/da_list-system-max2/group0/task" + String(random_number) + ".json", function(json) {
-        const da_json = json[0];
+        const da_json = json;
         console.log(String(random_number))
         console.log(da_json);
         console.log(String(da_json))
