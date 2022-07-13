@@ -14,7 +14,7 @@ function create_table(task_id, json_data) {
     // console.log(js.length)
 
     var t_re = "";
-    let table_title = "task" + Sring(task_id);
+    let table_title = "task" + task_id;
 
     t_re += '<table border="1" style="width:100%" align="center">' +
         '<caption>' +
@@ -41,8 +41,8 @@ function create_table(task_id, json_data) {
 
         table_tmp += '<td>発話意図</td><td>' + dialog[i].intent + '</td>'
         table_tmp += '<td rowspan=' + rowspan + '>' +
-            '<li><input type="text" id="' + Sring(task_id) + dialog[i].id + "_" + dialog[i].speaker + "_utterance1" + '" name="' + dialog[i].id + "_" + i + "_" + dialog[i].speaker + "_utterance1" + '" style="width:90%;margin:2 0px;resize:none" placeholder="1つ目の発話文を入力してください"/></li>' +
-            '<li><input type="text" id="' + Sring(task_id) + dialog[i].id + "_" + dialog[i].speaker + "_utterance2" + '" name="' + dialog[i].id + "_" + i + "_" + dialog[i].speaker + "_utterance2" + '" style="width:90%;margin:2 0px;resize:none" placeholder="2つ目の発話文を入力してください"/></li>' +
+            '<li><input type="text" id="' + task_id + dialog[i].id + "_" + dialog[i].speaker + "_utterance1" + '" name="' + dialog[i].id + "_" + i + "_" + dialog[i].speaker + "_utterance1" + '" style="width:90%;margin:2 0px;resize:none" placeholder="1つ目の発話文を入力してください"/></li>' +
+            '<li><input type="text" id="' + task_id + dialog[i].id + "_" + dialog[i].speaker + "_utterance2" + '" name="' + dialog[i].id + "_" + i + "_" + dialog[i].speaker + "_utterance2" + '" style="width:90%;margin:2 0px;resize:none" placeholder="2つ目の発話文を入力してください"/></li>' +
             '</td></tr>';
         for (var s = 0; s < Object.keys(dialog[i].slots).length; s++) {
             table_tmp += '<tr><td>' + Object.keys(dialog[i].slots)[s] + '</td><td>' + Object.values(dialog[i].slots)[s] + '</td></tr>'
@@ -131,8 +131,8 @@ function submit(table_id) {
         var replace1 = "";
         var replace2 = "";
         // if (json[i].intent != "") {
-        replace1 = document.getElementById(Sring(task_id) + "_" + json[i].id + '_' + json[i].speaker + "_utterance1").value;
-        replace2 = document.getElementById(Sring(task_id) + "_" + json[i].id + '_' + json[i].speaker + "_utterance2").value;
+        replace1 = document.getElementById(task_id + "_" + json[i].id + '_' + json[i].speaker + "_utterance1").value;
+        replace2 = document.getElementById(task_id + "_" + json[i].id + '_' + json[i].speaker + "_utterance2").value;
         if (replace1 == "" || replace2 == "") all_checked = true;
         else value_tmp += replace1 + "," + replace2;
         // } else {
