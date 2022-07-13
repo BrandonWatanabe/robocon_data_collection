@@ -9,7 +9,7 @@ const shuffle = ([...array]) => {
 
 function create_table(task_id, json_data) {
     // const json_data = '[{"id": 1,"speaker": "user","intent": "教える","slots": {"ユーザの名前": "鈴木"}},{"id": 2,"speaker": "system","intent": "観光地の名称を確認する","slots": {"ユーザの名前": "鈴木","観光地1の名称": "お台場海浜公園","観光地2の名称": "第三台場"}}]';
-    let dialog = json_data;
+    var dialog = json_data;
     // console.log(js)
     // console.log(js.length)
 
@@ -53,7 +53,6 @@ function create_table(task_id, json_data) {
 };
 
 
-
 function download(filename, text) {
     var pom = document.createElement('a');
     pom.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
@@ -95,18 +94,18 @@ function submit(table_id) {
 
     // const dialog_id = dialog_list[table_id - 1].id;
     // const dialog_turns = dialog_list[table_id - 1].turns;
-    for (var i = 0; i < json.length; i++) {
-        var value_tmp = json[i].id + "," + json[i].speaker + "," + json[i].intent + ",";
+    for (var i = 0; i < dialog.length; i++) {
+        var value_tmp = dialog[i].id + "," + dialog[i].speaker + "," + dialog[i].intent + ",";
         var value_tmp_slots_keys = "";
         var value_tmp_slots_values = "";
-        for (var j = 0; j < json[i].slots.length; j++) {
-            value_tmp_slots_keys += Object.keys(json[i].slots)[j] + " ";
-            value_tmp_slots_values += Object.values(json[i].slots)[j] + " ";
+        for (var j = 0; j < dialog[i].slots.length; j++) {
+            value_tmp_slots_keys += Object.keys(dialog[i].slots)[j] + " ";
+            value_tmp_slots_values += Object.values(dialog[i].slots)[j] + " ";
         }
         value_tmp += value_tmp_slots_keys.trimRight() + "," + value_tmp_slots_values.trimRight() + ",";
-        // value_tmp += json["intent"] + ","
-        // var smile_tmp = document.getElementsByName(dialog_id + "_" + json[i][0] + "_smile");
-        // var nod_tmp = document.getElementsByName(dialog_id + "_" + json[i][0] + "_nod");
+        // value_tmp += dialog["intent"] + ","
+        // var smile_tmp = document.getElementsByName(dialog_id + "_" + dialog[i][0] + "_smile");
+        // var nod_tmp = document.getElementsByName(dialog_id + "_" + dialog[i][0] + "_nod");
         // smile_selected = null;
         // nod_selected = null;
         // for (var j = 0; j < smile_tmp.length; j++) {
@@ -131,9 +130,9 @@ function submit(table_id) {
         // }
         var replace1 = "";
         var replace2 = "";
-        // if (json[i].intent != "") {
-        replace1 = document.getElementById(task_id + "_" + json[i].id + '_' + json[i].speaker + "_utterance1").value;
-        replace2 = document.getElementById(task_id + "_" + json[i].id + '_' + json[i].speaker + "_utterance2").value;
+        // if (dialog[i].intent != "") {
+        replace1 = document.getElementById(task_id + "_" + dialog[i].id + '_' + dialog[i].speaker + "_utterance1").value;
+        replace2 = document.getElementById(task_id + "_" + dialog[i].id + '_' + dialog[i].speaker + "_utterance2").value;
         if (replace1 == "" || replace2 == "") all_checked = true;
         else value_tmp += replace1 + "," + replace2;
         // } else {
