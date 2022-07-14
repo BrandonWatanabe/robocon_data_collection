@@ -67,8 +67,8 @@ function download(filename, text) {
 };
 
 
-function submit(table_id, json_data) {
-    var dialog = json_data;
+function submit(table_id) {
+    // var dialog = json_data;
     var all_checked = true;
     var text_write = "id,speaker,intent,slots.keys,slots.values,utterance1,utterance2\n";
 
@@ -95,18 +95,18 @@ function submit(table_id, json_data) {
 
     // const dialog_id = dialog_list[table_id - 1].id;
     // const dialog_turns = dialog_list[table_id - 1].turns;
-    for (var i = 0; i < dialog.length; i++) {
-        var value_tmp = dialog[i].id + "," + dialog[i].speaker + "," + dialog[i].intent + ",";
+    for (var i = 0; i < json_data.length; i++) {
+        var value_tmp = json_data[i].id + "," + json_data[i].speaker + "," + json_data[i].intent + ",";
         var value_tmp_slots_keys = "";
         var value_tmp_slots_values = "";
-        for (var j = 0; j < dialog[i].slots.length; j++) {
-            value_tmp_slots_keys += Object.keys(dialog[i].slots)[j] + " ";
-            value_tmp_slots_values += Object.values(dialog[i].slots)[j] + " ";
+        for (var j = 0; j < json_data[i].slots.length; j++) {
+            value_tmp_slots_keys += Object.keys(json_data[i].slots)[j] + " ";
+            value_tmp_slots_values += Object.values(json_data[i].slots)[j] + " ";
         }
         value_tmp += value_tmp_slots_keys.trimRight() + "," + value_tmp_slots_values.trimRight() + ",";
-        // value_tmp += dialog["intent"] + ","
-        // var smile_tmp = document.getElementsByName(dialog_id + "_" + dialog[i][0] + "_smile");
-        // var nod_tmp = document.getElementsByName(dialog_id + "_" + dialog[i][0] + "_nod");
+        // value_tmp += json_data["intent"] + ","
+        // var smile_tmp = document.getElementsByName(json_data_id + "_" + json_data[i][0] + "_smile");
+        // var nod_tmp = document.getElementsByName(json_data_id + "_" + json_data[i][0] + "_nod");
         // smile_selected = null;
         // nod_selected = null;
         // for (var j = 0; j < smile_tmp.length; j++) {
@@ -131,9 +131,9 @@ function submit(table_id, json_data) {
         // }
         var replace1 = "";
         var replace2 = "";
-        // if (dialog[i].intent != "") {
-        replace1 = document.getElementById(task_id + "_" + dialog[i].id + '_' + dialog[i].speaker + "_utterance1").value;
-        replace2 = document.getElementById(task_id + "_" + dialog[i].id + '_' + dialog[i].speaker + "_utterance2").value;
+        // if (json_data[i].intent != "") {
+        replace1 = document.getElementById(task_id + "_" + json_data[i].id + '_' + json_data[i].speaker + "_utterance1").value;
+        replace2 = document.getElementById(task_id + "_" + json_data[i].id + '_' + json_data[i].speaker + "_utterance2").value;
         if (replace1 == "" || replace2 == "") all_checked = true;
         else value_tmp += replace1 + "," + replace2;
         // } else {
@@ -143,6 +143,6 @@ function submit(table_id, json_data) {
         text_write += value_tmp + "\n";
     }
 
-    if (all_checked == true) download(table_id + "_" + document.getElementById("WorkerID").value + "_" + age + "_" + gender + "_" + dialog_id + ".csv", text_write);
+    if (all_checked == true) download(table_id + "_" + document.getElementById("WorkerID").value + "_" + age + "_" + gender + "_" + task_id + ".csv", text_write);
     else alert(dialog_id + "つ目の対話欄に入力されていない項目があります．");
 };
