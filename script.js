@@ -10,8 +10,6 @@ const shuffle = ([...array]) => {
 function create_table(task_id, json_data) {
     // const json_data = '[{"id": 1,"speaker": "user","intent": "教える","slots": {"ユーザの名前": "鈴木"}},{"id": 2,"speaker": "system","intent": "観光地の名称を確認する","slots": {"ユーザの名前": "鈴木","観光地1の名称": "お台場海浜公園","観光地2の名称": "第三台場"}}]';
     const dialog = json_data;
-    // console.log(js)
-    // console.log(js.length)
 
     var t_re = "";
     let table_title = "task" + task_id;
@@ -92,9 +90,6 @@ function submit(table_id) {
         return;
     }
 
-
-    // const dialog_id = dialog_list[table_id - 1].id;
-    // const dialog_turns = dialog_list[table_id - 1].turns;
     for (var i = 0; i < json_data.length; i++) {
         var value_tmp = json_data[i].id + "," + json_data[i].speaker + "," + json_data[i].intent + ",";
         var value_tmp_slots_keys = "";
@@ -104,41 +99,13 @@ function submit(table_id) {
             value_tmp_slots_values += Object.values(json_data[i].slots)[j] + " ";
         }
         value_tmp += value_tmp_slots_keys.trimRight() + "," + value_tmp_slots_values.trimRight() + ",";
-        // value_tmp += json_data["intent"] + ","
-        // var smile_tmp = document.getElementsByName(json_data_id + "_" + json_data[i][0] + "_smile");
-        // var nod_tmp = document.getElementsByName(json_data_id + "_" + json_data[i][0] + "_nod");
-        // smile_selected = null;
-        // nod_selected = null;
-        // for (var j = 0; j < smile_tmp.length; j++) {
-        //     if (smile_tmp[j].checked) {
-        //         value_tmp += smile_tmp[j].value + ",";
-        //         smile_selected = smile_tmp[j].value;
-        //     }
-        // }
-        // if (smile_selected == null) {
-        //     all_checked = false;
-        //     break;
-        // }
-        // for (var j = 0; j < nod_tmp.length; j++) {
-        //     if (nod_tmp[j].checked) {
-        //         value_tmp += nod_tmp[j].value;
-        //         nod_selected = nod_tmp[j].value;
-        //     }
-        // }
-        // if (nod_selected == null) {
-        //     all_checked = false;
-        //     break;
-        // }
+
         var replace1 = "";
         var replace2 = "";
-        // if (json_data[i].intent != "") {
         replace1 = document.getElementById(task_id + "_" + json_data[i].id + '_' + json_data[i].speaker + "_utterance1").value;
         replace2 = document.getElementById(task_id + "_" + json_data[i].id + '_' + json_data[i].speaker + "_utterance2").value;
         if (replace1 == "" || replace2 == "") all_checked = true;
         else value_tmp += replace1 + "," + replace2;
-        // } else {
-        //     value_tmp += ",,,";
-        // }
 
         text_write += value_tmp + "\n";
     }
