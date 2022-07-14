@@ -140,7 +140,7 @@
     <div class="container" id='Table1'></div>
     <div class="container" id='submit_button-1'>
         <br>
-        <center><button class="btn btn-primary" id="submit-1" onclick="submit(1, json)">ダウンロード</button></center>
+        <center><button class="btn btn-primary" id="submit-1" onclick="submit(1)">ダウンロード</button></center>
         <br>
     </div>
 <!--     <script src="data/example.js"></script> -->
@@ -149,9 +149,10 @@
     <script language="javascript" type="text/javascript">
         let random_number = Math.floor(Math.random()*50);
         $.getJSON("data/da_list-2022-0712/da_list-system-max2/group0/task" + String(random_number) + ".json", function(json) {
+        const json_data = json
         console.log(String(random_number))
         console.log(json);
-        document.getElementById('Table1').innerHTML = create_table(random_number, json);
+        document.getElementById('Table1').innerHTML = create_table(random_number, json_data);
         });
     </script>
 
