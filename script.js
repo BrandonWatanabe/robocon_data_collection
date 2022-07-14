@@ -9,7 +9,7 @@ const shuffle = ([...array]) => {
 
 function create_table(task_id, json_data) {
     // const json_data = '[{"id": 1,"speaker": "user","intent": "教える","slots": {"ユーザの名前": "鈴木"}},{"id": 2,"speaker": "system","intent": "観光地の名称を確認する","slots": {"ユーザの名前": "鈴木","観光地1の名称": "お台場海浜公園","観光地2の名称": "第三台場"}}]';
-    var dialog = json_data;
+    const dialog = json_data;
     // console.log(js)
     // console.log(js.length)
 
@@ -41,8 +41,8 @@ function create_table(task_id, json_data) {
 
         table_tmp += '<td>発話意図</td><td>' + dialog[i].intent + '</td>'
         table_tmp += '<td rowspan=' + rowspan + '>' +
-            '<li><input type="text" id="' + task_id + dialog[i].id + "_" + dialog[i].speaker + "_utterance1" + '" name="' + dialog[i].id + "_" + i + "_" + dialog[i].speaker + "_utterance1" + '" style="width:90%;margin:2 0px;resize:none" placeholder="1つ目の発話文を入力してください"/></li>' +
-            '<li><input type="text" id="' + task_id + dialog[i].id + "_" + dialog[i].speaker + "_utterance2" + '" name="' + dialog[i].id + "_" + i + "_" + dialog[i].speaker + "_utterance2" + '" style="width:90%;margin:2 0px;resize:none" placeholder="2つ目の発話文を入力してください"/></li>' +
+            '<li><input type="text" id="' + task_id + "_" + dialog[i].id + "_" + dialog[i].speaker + "_utterance1" + '" name="' + dialog[i].id + "_" + i + "_" + dialog[i].speaker + "_utterance1" + '" style="width:90%;margin:2 0px;resize:none" placeholder="1つ目の発話文を入力してください"/></li>' +
+            '<li><input type="text" id="' + task_id + "_" + dialog[i].id + "_" + dialog[i].speaker + "_utterance2" + '" name="' + dialog[i].id + "_" + i + "_" + dialog[i].speaker + "_utterance2" + '" style="width:90%;margin:2 0px;resize:none" placeholder="2つ目の発話文を入力してください"/></li>' +
             '</td></tr>';
         for (var s = 0; s < Object.keys(dialog[i].slots).length; s++) {
             table_tmp += '<tr><td>' + Object.keys(dialog[i].slots)[s] + '</td><td>' + Object.values(dialog[i].slots)[s] + '</td></tr>'
