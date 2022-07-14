@@ -67,7 +67,8 @@ function download(filename, text) {
 };
 
 
-function submit(table_id) {
+function submit(table_id, json_data) {
+    var dialog = json_data;
     var all_checked = true;
     var text_write = "id,speaker,intent,slots.keys,slots.values,utterance1,utterance2\n";
 
