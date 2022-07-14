@@ -103,7 +103,7 @@ function submit(table_id) {
             value_tmp_slots_keys += Object.keys(json_data[i].slots)[j] + " ";
             value_tmp_slots_values += Object.values(json_data[i].slots)[j] + " ";
         }
-        value_tmp += value_tmp_slots_keys.trimRight() + "," + value_tmp_slots_values.trimRight() + ",";
+        value_tmp += value_tmp_slots_keys + "," + value_tmp_slots_values + ",";
         // value_tmp += json_data["intent"] + ","
         // var smile_tmp = document.getElementsByName(json_data_id + "_" + json_data[i][0] + "_smile");
         // var nod_tmp = document.getElementsByName(json_data_id + "_" + json_data[i][0] + "_nod");
