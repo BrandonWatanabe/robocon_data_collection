@@ -131,7 +131,9 @@
                 <li>1度ダウンロードされた対話データのファイル名やファイルの中身は編集しないでください．</li>
                 <li>ダウンロードボタンをクリックしても対話データをダウンロードできない場合，全てのフォームが正しく入力されていな可能性があります．上記1-1.~2-1.の作業が正しくできているかを確認してください．</li>
             </ul>
+        <p>良い例</p>
         <img src="figs/good_example1.png" width="900">
+        <p>悪い例</p>
         <img src="figs/bad_example1.png" width="900">
         </p>
         <p>上記全ての作業が正確に行われていることが確認でき次第，CrowdWorksにてお仕事を承認し報酬をお支払いします．ただし，<strong>作業がインストラクション通りに行われていない場合や，明らかに対話の流れに沿わない発話や無関係な発話が確認できた場合は，不適切とみなし非承認とすることがありますのでご注意ください</strong>．</p>
@@ -148,12 +150,14 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script language="javascript" type="text/javascript">
         let random_number = Math.floor(Math.random()*50);
-        $.getJSON("data/da_list-2022-0712/da_list-system-max2/group0/task" + String(random_number) + ".json", function(json) {
-        const json_data = json
-        console.log(String(random_number))
-        console.log(json);
+        const json_data = require('data/da_list-2022-0712/da_list-system-max2/group0/task" + String(random_number) + ".json');
         document.getElementById('Table1').innerHTML = create_table(random_number, json_data);
-        });
+        // $.getJSON("data/da_list-2022-0712/da_list-system-max2/group0/task" + String(random_number) + ".json", function(json) {
+        // const json_data = json
+        // console.log(String(random_number))
+        // console.log(json);
+        // document.getElementById('Table1').innerHTML = create_table(random_number, json_data);
+        // });
     </script>
 
 </body>
