@@ -21,14 +21,12 @@ function create_table(task_id, json_data) {
         '<h3>' +
         table_title +
         '</h3>' +
-        '</div>'
-        '<div>' +
         '<h4>' + 
         'ユーザの名前"に（※）が付いている場合には，話し相手をその名前で呼ぶような発話を作成してください．\n' +
         '(例)「発話意図：質問する，ユーザの名前：鈴木，観光地への同行者：?」の場合\n' +
         '「鈴木様はどなたとご観光される予定ですか？」\n' +
         '</h4>' +
-        '</div>' +
+        '</div>'
         '</caption>' +
         '<tbody>' +
         '<th style="width:10%; text-align:center">話者</th>' +
