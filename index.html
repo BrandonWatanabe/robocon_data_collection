@@ -151,10 +151,10 @@
     <script language="javascript" type="text/javascript">
         let task_id = Math.floor(Math.random()*50);
         var json_data = ""
-        $.getJSON("data/da_list-2022-0713/da_list-system-max2/group0/task" + String(task_id) + ".json", function(json) {
+        $.getJSON("data/da_list-2022-0715/da_list-system-max2/group0/task" + String(task_id) + ".json", function(json) {
         json_data = json
-        console.log(String(task_id))
-        console.log(json);
+        // console.log(String(task_id))
+        // console.log(json);
         document.getElementById('Table1').innerHTML = create_table(task_id, json_data);
         });
     </script>
