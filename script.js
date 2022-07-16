@@ -32,18 +32,18 @@ function create_table(task_id, json_data) {
         var table_tmp = '<tr>'
         let rowspan = String(1+Object.keys(dialog[i].slots).length)
         if (dialog[i].speaker == "system") {
-            table_tmp += '<td style="width:10%; "text-align:center" rowspan='+ rowspan + '>店員</td>'
+            table_tmp += '<td style="width:10%; text-align:center" rowspan='+ rowspan + '>店員</td>'
         } else if (dialog[i].speaker == "user") {
-            table_tmp += '<td style="width:10%; "text-align:center" rowspan='+ rowspan + '>客</td>'
+            table_tmp += '<td style="width:10%; text-align:center" rowspan='+ rowspan + '>客</td>'
         }
 
-        table_tmp += '<td style="width:20%>発話意図</td><td style="width:20%>' + dialog[i].intent + '</td>'
+        table_tmp += '<td style="width:20%">発話意図</td><td style="width:20%">' + dialog[i].intent + '</td>'
         table_tmp += '<td rowspan=' + rowspan + '>' +
             '<li><input type="text" id="' + task_id + "_" + dialog[i].id + "_" + dialog[i].speaker + "_utterance1" + '" name="' + dialog[i].id + "_" + i + "_" + dialog[i].speaker + "_utterance1" + '" style="width:50%;margin:2 0px;resize:none" placeholder="1つ目の発話文を入力してください"/></li>' +
             '<li><input type="text" id="' + task_id + "_" + dialog[i].id + "_" + dialog[i].speaker + "_utterance2" + '" name="' + dialog[i].id + "_" + i + "_" + dialog[i].speaker + "_utterance2" + '" style="width:50%;margin:2 0px;resize:none" placeholder="2つ目の発話文を入力してください"/></li>' +
             '</td></tr>';
         for (var s = 0; s < Object.keys(dialog[i].slots).length; s++) {
-            table_tmp += '<tr><td> style="width:20%>' + Object.keys(dialog[i].slots)[s] + '</td><td> style="width:20%>' + Object.values(dialog[i].slots)[s] + '</td></tr>'
+            table_tmp += '<tr><td> style="width:20%">' + Object.keys(dialog[i].slots)[s] + '</td><td> style="width:20%">' + Object.values(dialog[i].slots)[s] + '</td></tr>'
         }
         t_re += table_tmp;
     }
