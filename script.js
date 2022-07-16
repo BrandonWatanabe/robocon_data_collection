@@ -25,7 +25,7 @@ function create_table(task_id, json_data) {
         '</caption>' +
         '<tbody>' +
         '<th style="width:10%; text-align:center">話者</th>' +
-        '<th style="width:40%; text-align:center" colspan="2">DA・情報</th>' +
+        '<th style="width:40%; text-align:center" colspan="2">発話の意味</th>' +
         '<th style="width:50%; text-align:center">発話文</th>'
 
     for (var i = 0; i < dialog.length; i++) {
@@ -37,13 +37,13 @@ function create_table(task_id, json_data) {
             table_tmp += '<td style = "text-align:center" rowspan='+ rowspan + '>客</td>'
         }
 
-        table_tmp += '<td>発話意図</td><td>' + dialog[i].intent + '</td>'
+        table_tmp += '<td style="width:50%>発話意図</td><td style="width:50%>' + dialog[i].intent + '</td>'
         table_tmp += '<td rowspan=' + rowspan + '>' +
             '<li><input type="text" id="' + task_id + "_" + dialog[i].id + "_" + dialog[i].speaker + "_utterance1" + '" name="' + dialog[i].id + "_" + i + "_" + dialog[i].speaker + "_utterance1" + '" style="width:90%;margin:2 0px;resize:none" placeholder="1つ目の発話文を入力してください"/></li>' +
             '<li><input type="text" id="' + task_id + "_" + dialog[i].id + "_" + dialog[i].speaker + "_utterance2" + '" name="' + dialog[i].id + "_" + i + "_" + dialog[i].speaker + "_utterance2" + '" style="width:90%;margin:2 0px;resize:none" placeholder="2つ目の発話文を入力してください"/></li>' +
             '</td></tr>';
         for (var s = 0; s < Object.keys(dialog[i].slots).length; s++) {
-            table_tmp += '<tr><td>' + Object.keys(dialog[i].slots)[s] + '</td><td>' + Object.values(dialog[i].slots)[s] + '</td></tr>'
+            table_tmp += '<tr><td  style="width:50%>' + Object.keys(dialog[i].slots)[s] + '</td><td  style="width:50%>' + Object.values(dialog[i].slots)[s] + '</td></tr>'
         }
         t_re += table_tmp;
     }
@@ -70,8 +70,8 @@ function submit(table_id) {
     var all_checked = true;
     var text_write = "id,speaker,intent,slots.keys,slots.values,utterance1,utterance2\n";
 
-    var gender = "";
-    var age = "";
+    // var gender = "";
+    // var age = "";
     for (var j = 0; j < document.getElementsByName("Gender").length; j++) {
         if (document.getElementsByName("Gender")[j].checked) {
             gender = document.getElementsByName("Gender")[j].value;
@@ -84,9 +84,11 @@ function submit(table_id) {
         }
     }
 
-    if (document.getElementById("WorkerID").value == "" || age == "" || gender == "") {
+    // if (document.getElementById("WorkerID").value == "" || age == "" || gender == "") {
+    if (document.getElementById("WorkerID").value == "" || document.getElementById("WorkerName").value == "") {
         all_checked = false;
-        alert("ワーカーID，性別，年代を入力してください．");
+        // alert("ワーカーID，性別，年代を入力してください．");
+        alert("ワーカーID、CrowdWorksでの表示名を入力してください．");
         return;
     }
 
@@ -110,6 +112,6 @@ function submit(table_id) {
         text_write += value_tmp + "\n";
     }
 
-    if (all_checked == true) download(table_id + "_" + document.getElementById("WorkerID").value + "_" + age + "_" + gender + "_" + task_id + ".csv", text_write);
+    if (all_checked == true) download(table_id + "_" + task_id + "_" + document.getElementById("WorkerID").value + "_" + document.getElementById("WorkerName").value + ".csv", text_write);
     else alert(dialog_id + "つ目の対話欄に入力されていない項目があります．");
 };
