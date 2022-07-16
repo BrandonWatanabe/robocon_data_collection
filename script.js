@@ -21,6 +21,13 @@ function create_table(task_id, json_data) {
         '<h3>' +
         table_title +
         '</h3>' +
+        '</div>'
+        '<div>' +
+        '<h4>' + 
+        'ユーザの名前"に（※）が付いている場合には，話し相手をその名前で呼ぶような発話を作成してください．\n' +
+        '(例)「発話意図：質問する，ユーザの名前：鈴木，観光地への同行者：?」の場合\n' +
+        '「鈴木様はどなたとご観光される予定ですか？」\n' +
+        '</h4>' +
         '</div>' +
         '</caption>' +
         '<tbody>' +
@@ -43,7 +50,11 @@ function create_table(task_id, json_data) {
             '<li><input type="text" id="' + task_id + "_" + dialog[i].id + "_" + dialog[i].speaker + "_utterance2" + '" name="' + dialog[i].id + "_" + i + "_" + dialog[i].speaker + "_utterance2" + '" style="width:90%;margin:2 0px;resize:none" placeholder="2つ目の発話文を入力してください"/></li>' +
             '</td></tr>';
         for (var s = 0; s < Object.keys(dialog[i].slots).length; s++) {
-            table_tmp += '<tr><td style="width:20%;">' + Object.keys(dialog[i].slots)[s] + '</td><td style="width:20%;">' + Object.values(dialog[i].slots)[s] + '</td></tr>'
+            if (Object.values(dialog[i].slots)[s] == "?") {
+                table_tmp += '<tr><td style="width:20%;">' + Object.keys(dialog[i].slots)[s] + '</td><td style="width:20%;"></td></tr>'
+            } else {
+                table_tmp += '<tr><td style="width:20%;">' + Object.keys(dialog[i].slots)[s] + '</td><td style="width:20%;">' + Object.values(dialog[i].slots)[s] + '</td></tr>'
+            }
         }
         t_re += table_tmp;
     }
